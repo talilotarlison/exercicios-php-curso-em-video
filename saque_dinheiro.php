@@ -36,3 +36,4 @@ sedas das de cinco $cinco <br>
 sedas de dois $dois <br>
 sedas de um $um <br>
 ";
+//https://pt.m.wikipedia.org/wiki/Programação_procedural
