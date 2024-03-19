@@ -1,0 +1,4 @@
+// Curos MVC PHP
+// https://www.youtube.com/watch?v=6ERdu4k62wI&t=2339s
+//https://www.devmedia.com.br/conceito-de-mvc-e-sua-funcionalidade-usando-o-php/22324
+// https://pt.stackoverflow.com/questions/114824/como-e-para-que-usar-mvc-no-php
