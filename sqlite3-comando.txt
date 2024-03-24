@@ -1,0 +1,38 @@
+Para renomear uma coluna em uma tabela no SQLite, você pode usar o comando **ALTER TABLE**. No entanto, o SQLite não suporta diretamente a cláusula **CHANGE COLUMN** como em alguns outros sistemas de gerenciamento de banco de dados. Em vez disso, você precisará fazer isso em duas etapas:
+
+1. Primeiro, **adicionar** uma nova coluna com o nome desejado e o tipo de dados correto.
+2. Em seguida, **copiar** os dados da coluna antiga para a nova coluna.
+3. Finalmente, **remover** a coluna antiga.
+
+Aqui está como você pode fazer isso no SQLite:
+
+```sql
+-- 1. Adicione uma nova coluna com o nome desejado e o tipo de dados correto
+ALTER TABLE User ADD COLUMN novo_nome_do_campo tipo_de_dados;
+
+-- 2. Copie os dados da coluna antiga para a nova coluna
+UPDATE User SET novo_nome_do_campo = antigo_nome_do_campo;
+
+-- 3. Remova a coluna antiga
+ALTER TABLE User DROP COLUMN antigo_nome_do_campo;
+```
+
+
+#################################################
+
+Para **atualizar o nome de uma coluna** em uma tabela SQLite, você pode seguir os seguintes passos:
+
+1. **Adicione** uma nova coluna com o nome desejado e o tipo de dados correto:
+    ```sql
+    ALTER TABLE Nome_da_Tabela ADD COLUMN novo_nome_do_campo tipo_de_dados;
+    ```
+
+2. **Copie** os dados da coluna antiga para a nova coluna:
+    ```sql
+    UPDATE Nome_da_Tabela SET novo_nome_do_campo = antigo_nome_do_campo;
+    ```
+
+3. **Remova** a coluna antiga:
+    ```sql
+    ALTER TABLE Nome_da_Tabela DROP COLUMN antigo_nome_do_campo;
+    ```
