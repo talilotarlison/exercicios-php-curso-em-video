@@ -16,11 +16,14 @@ $paths = explode('/', $_SERVER['PATH_INFO']);
 echo '<pre>';
 print_r($paths);
 echo '</pre>';
-?>
 
 // https://www.php.net/manual/pt_BR/function.htmlspecialchars.php
+// https://www.w3schools.com/PHP/func_string_htmlspecialchars.asp
 // Mostra as tags no echo na pagina html
+
 $str = "This is some <b>bold</b> text.";
 echo htmlspecialchars($str);
 
 echo 'Hello ' . htmlspecialchars($_GET["name"]) . '!';
+
+?>
