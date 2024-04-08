@@ -1,11 +1,10 @@
 <?php
+    /*
+    echo 'digite algo para inicializar';
 
-/*
-echo 'digite algo para inicializar';
+    $resultado =  readline("Command: ");
+    echo 'O resultado é ' .$resultado . PHP_EOL;
 
-$resultado =  readline("Command: ");
-echo 'O resultado é ' .$resultado . PHP_EOL;
-
-echo 'talilo';
-*/
+    echo 'talilo';
+    */
 ?>
