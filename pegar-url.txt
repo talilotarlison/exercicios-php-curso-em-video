@@ -1,0 +1,54 @@
+Para obter parâmetros de uma URL usando PHP, existem várias abordagens. Vou apresentar algumas opções:
+
+1. **Usando a variável `$_GET`**:
+   - Quando você passa parâmetros na URL usando a sintaxe `?chave=valor`, o PHP automaticamente coloca esses valores na superglobal `$_GET`.
+   - Por exemplo, se a URL for `http://exemplo.com/index.php?nome=João`, você pode acessar o valor do parâmetro "nome" da seguinte forma:
+     ```php
+     $nome = $_GET['nome'];
+     echo "Olá, $nome!";
+     ```
+   - Lembre-se de que isso funciona apenas para parâmetros passados via método GET.
+
+2. **Usando a função `parse_url()`**:
+   - A função `parse_url()` permite analisar uma URL e obter seus componentes (como o caminho, o host, os parâmetros etc.).
+   - Por exemplo:
+     ```php
+     $url = 'http://exemplo.com/registrar/nomedapessoa';
+     $parsed_url = parse_url($url);
+     $path = $parsed_url['path']; // "/registrar/nomedapessoa"
+     ```
+   - Você pode então manipular o `$path` para obter os parâmetros desejados.
+
+3. **Usando .htaccess (para URLs amigáveis)**:
+   - Se você deseja criar URLs amigáveis (sem parâmetros visíveis na URL), pode usar um arquivo `.htaccess`.
+   - Crie um arquivo chamado `.htaccess` na pasta principal do seu site e adicione o seguinte conteúdo:
+     ```apache
+     RewriteEngine On
+     RewriteBase /
+     # Verifica se o arquivo existe e, se sim, ignora a reescrita
+     RewriteCond %{REQUEST_FILENAME} !-f
+     # Verifica se a pasta existe e, se sim, ignora a reescrita
+     RewriteCond %{REQUEST_FILENAME} !-d
+     # Reescreve a URL para acessar arquivos PHP e o PATH_INFO
+     RewriteRule ^(.*)/(.*)$ $1.php/$2 [L,QSA]
+     ```
+   - O código PHP para testes deve ficar algo como (no arquivo `registrar.php`):
+     ```php
+     <?php
+     echo 'Path: ' . $_SERVER['PATH_INFO'] . '<br>';
+     // Extraindo PATH_INFO
+     $paths = explode('/', $_SERVER['PATH_INFO']);
+     echo '<pre>';
+     print_r($paths);
+     echo '</pre>';
+     ?>
+     ```
+   - Assim, ao acessar `http://exemplo.com/registrar/nomedapessoa`, o conteúdo do `registrar.php` será mostrado.
+
+Espero que essas opções sejam úteis para você! 😊
+
+Source: Conversation with Bing, 4/8/2024
+(1) Pegar parâmetros de URL em PHP - Stack Overflow em Português. https://pt.stackoverflow.com/questions/70308/pegar-par%c3%a2metros-de-url-em-php.
+(2) Como obter parâmetros de uma string de URL em PHP. https://bing.com/search?q=como+pegar+par%c3%a2metro+de+url+com+php.
+(3) Como pegar url atual com o PHP - Stack Overflow em Português. https://pt.stackoverflow.com/questions/200471/como-pegar-url-atual-com-o-php.
+(4) php - Pegar parâmetro da URL - Stack Overflow em Português. https://pt.stackoverflow.com/questions/126083/pegar-par%C3%A2metro-da-url.
