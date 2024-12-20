@@ -1,3 +1,4 @@
+<?php
 #Aqui array
 $list = array(
  "0" => "Sakuke",
