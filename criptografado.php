@@ -1,5 +1,6 @@
 <?php
 // Chave secreta e método de criptografia
+// https://medium.com/@soulaimaneyh/secure-your-php-application-with-encryption-functions-fc8b8ebd019d
 $encryption_key = 'sua-chave-secreta-aqui';
 $cipher_method = 'AES-256-CBC';
 
